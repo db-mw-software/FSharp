@@ -132,7 +132,7 @@
 ## Recommendations
 ### ```GET``` ```/api/user/recommendations```
   Returns a list of recommendations for the user.
-  Example
+  Example:
   ```json
   {
     "concerts": [
