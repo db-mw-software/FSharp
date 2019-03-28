@@ -36,8 +36,7 @@
     "genres":[
       {"id": 1, "name":"Rock"},
       {"id": 2, "name":"Pop"},
-      {"id": 3, "name":"Jazz"},
-      ...      
+      {"id": 3, "name":"Jazz"}    
     ]
   }
   ```
@@ -51,8 +50,7 @@
     "artists":[
       {"id": 1000, "name":"Queen", "image": "https://url.com/n2AS6na"},
       {"id": 1001, "name":"Bob Dylan", "image": "https://url.com/n566ac"},
-      {"id": 1002, "name":"The Beatles", "image": "https://url.com/n134AAS"},
-      ...      
+      {"id": 1002, "name":"The Beatles", "image": "https://url.com/n134AAS"}     
     ]
   }
   ```
@@ -66,8 +64,7 @@
     "genres":[
       {"id": 1, "name":"Rock"},
       {"id": 2, "name":"Pop"},
-      {"id": 3, "name":"Jazz"},
-      ...      
+      {"id": 3, "name":"Jazz"}      
     ]
   }
   ```
@@ -98,8 +95,7 @@
     "artists":[
       {"id": 1000, "name":"Queen", "image": "https://url.com/n2AS6na"},
       {"id": 1001, "name":"Bob Dylan", "image": "https://url.com/n566ac"},
-      {"id": 1002, "name":"The Beatles", "image": "https://url.com/n134AAS"},
-      ...      
+      {"id": 1002, "name":"The Beatles", "image": "https://url.com/n134AAS"}  
     ]
   }
   ```
@@ -142,7 +138,7 @@
     "concerts": [
       {
         "concertId": 90419,
-        "title": "Queen Live Performance"
+        "title": "Queen Live Performance",
         "artist": {"id": 1000, "name": "Queen", "image": "https://url.com/n2AS6na"},
         "date": "1985-07-13",
         "time": "18:40",
@@ -200,7 +196,7 @@
   }
   ```
 
-##Concerts 
+## Concerts 
 ### ```GET``` ```/api/concerts?artist={artist-name}?city={city-name}?venue={venue-name}```
   Returns a list of concerts based on request paramters. Works with a combination of artist, city, and venue name. 
   ```json
@@ -208,7 +204,7 @@
     "concerts": [
       {
         "concertId": 90419,
-        "title": "Queen Live Performance"
+        "title": "Queen Live Performance",
         "artist": {"id": 1000, "name": "Queen", "image": "https://url.com/n2AS6na"},
         "date": "1985-07-13",
         "time": "18:40",
