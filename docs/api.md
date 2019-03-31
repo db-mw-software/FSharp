@@ -133,6 +133,9 @@
     "likedGenres": [
       {"id": 1, "name":"Rock"},
       {"id": 3, "name":"Jazz"}
+    ],
+    "usersFollowing": [
+      { "id": 74791, "name": "Daniel Vega" }
     ]
   }
   ```
