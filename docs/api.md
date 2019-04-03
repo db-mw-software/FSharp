@@ -1,7 +1,7 @@
 # F# API
 
 ## Register User
-### ```POST``` ```/api/register```
+### ```POST``` ```/api/user/register```
   Send user information such as name, email, and password.
   This information is the used to register the user.
   Example Payload:
@@ -28,7 +28,7 @@
   Simple request to log out the user. Nothing to send.
 
 ## Genres
-### ```GET``` ```/api/genres?search={query}```
+### ```GET``` ```/api/music/genres?search={query}```
   Returns a list of genres to be shown in the genre training view. If search request parameter is not set, returns all genres.
   Example Response:
   ```json
@@ -42,7 +42,7 @@
   ```
 
 ## Artists
-### ```GET``` ```/api/artists?genres={genre1, genre2, etc}?artists={artists1, artists2, etc}?name={artist-name}```
+### ```GET``` ```/api/music/artists?genres={genre1, genre2, etc}?artists={artists1, artists2, etc}?name={artist-name}```
   Returns a list of artists based on request parameter set. Only one request parameter must be set, cannot be combined. If genres is set, will return artists that belong to specified genre. If artists is set, will return artists similar to specified artists. If name is set, will return artists that match specified name.
   Example Response:
   ```json
@@ -219,7 +219,7 @@
   ```
 
 ## Concerts 
-### ```GET``` ```/api/concerts?artist={artist-name}?city={city-name}?venue={venue-name}```
+### ```GET``` ```/api/music/concerts?artist={artist-name}?city={city-name}?venue={venue-name}```
   Returns a list of concerts based on request paramters. Works with a combination of artist, city, and venue name. 
   Example Response:
   ```json
