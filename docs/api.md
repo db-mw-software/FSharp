@@ -70,20 +70,12 @@
   ```
 
 ### ```POST``` ```/api/user/genres```
-  Send list of genres user likes.
+  Send list of genre id's user likes and/or dislikes.
   Example Payload:
   ```json
   {
-    "target": [1, 3, 5, 8]
-  }
-  ```
-
-### ```DELETE``` ```/api/user/genres```
-  Send a list of genres user removed from their "liked" preferences.
-  Example Payload:
-  ```json
-  {
-    "target": [2]
+    "like": [1, 3, 5, 8],
+    "dislike": [6, 7]
   }
   ```
 
@@ -101,20 +93,12 @@
   ```
 
 ### ```POST``` ```/api/user/artists```
-  Send list of artists user likes.
+  Send list of artist id's user likes and/or dislikes.
   Example Payload:
   ```json
   {
-    "target": [1000, 561734, 80204, 97193, 10284]
-  }
-  ```
-
-### ```DELETE``` ```/api/user/artists```
-  Send a list of artists user removed from their "liked" preferences.
-  Example Payload:
-  ```json
-  {
-    "target": [92838, 78247, 52497]
+    "like": [1000, 561734, 80204, 97193, 10284],
+    "dislike": [92838, 78247, 52497]
   }
   ```
 
@@ -176,22 +160,21 @@
   Example Payload:
   ```json
   {
-    "target": 90419
-  }
-  ```
-
-### ```DELETE``` ```/api/user/concert-interest```
-  Send a concert id of concert user is no longer interested in.
-  Example Payload:
-  ```json
-  {
-    "target": 96673
+    "interested": 90419,
+    "notInterested": 96673
   }
   ```
 
 ## Find Friends
-### ```GET``` ```/api/user?search={email}```
+### ```POST``` ```/api/user/search```
   Search for a user based on email.
+  Example Payload:
+  ```json
+  {
+    "email": "friend@gmail.com"
+  }
+  ```
+
   Example Response:
   ```json
   {
@@ -201,20 +184,12 @@
   ```
 
 ### ```POST``` ```/api/user/follow```
-  Send id of user to follow.
+  Send id of user to follow or stop following.
   Example Payload: 
   ```json
   {
-    "target": 21240
-  }
-  ```
-
-### ```DELETE``` ```/api/user/follow```
-  Send id of user to un-follow.
-  Example Payload: 
-  ```json
-  {
-    "target": 21241
+    "follow": 21240,
+    "notFollow": 21241
   }
   ```
 
