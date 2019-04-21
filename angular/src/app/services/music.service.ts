@@ -21,6 +21,6 @@ export class MusicService {
   }
 
   genres(): Observable<Object> {
-    return this.http.get(this.)
+    return this.http.get(this.genresURL);
   }
 }
