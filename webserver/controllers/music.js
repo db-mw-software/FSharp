@@ -1,7 +1,8 @@
 const musicModel = require('../model/music');
 
-exports.genres = (req, res) => {
-  res.send('Hello from music genres!');
+exports.genres = async (req, res) => {
+  const genreArray = await musicModel.genres();
+  res.send(genreArray);
 }
 
 exports.artists = async (req, res) => {
