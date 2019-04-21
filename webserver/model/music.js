@@ -1,9 +1,11 @@
 const db = require('./dbConnection');
 
 exports.genres = () => {
-  return "Genres Model";
+  // Since there are not many genres, return all of them
+  return db.query('SELECT * FROM Genre');
 }
 
 exports.artists = () => {
-  return db.query('SELECT * FROM Artist LIMIT 10');
+  // 25 artists limit for now. May change
+  return db.query('SELECT * FROM Artist LIMIT 25');
 }
