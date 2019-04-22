@@ -1,6 +1,7 @@
-// Get Database connection
-// This model will be in charge of validating data
+const db = require('./dbConnection');
 
+// To use await, need to make function async first. See Music controller functions. 
+// Notice keyword "async" before parameters. Same to be done here
 exports.register = (registration) => {
   return "Register Model";
 }
