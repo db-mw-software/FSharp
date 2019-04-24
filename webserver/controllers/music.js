@@ -8,14 +8,24 @@ exports.genres = async (req, res) => {
   // Use Postman to make GET request to our server (ie: http://127.0.0.1:8080/api/music/genres?search=queen)
   // Access search query parameter, currently not implemented, in the following way
   // const genreToSearch = req.query.search
-  const genreArray = await musicModel.genres();
-  res.send(genreArray);
+  try {
+    const genreArray = await musicModel.genres();
+    res.send(genreArray);
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(404);
+  }
 }
 
 // Reached via GET /api/music/artists
 exports.artists = async (req, res) => {
-  const artistArray = await musicModel.artists();
-  res.send(artistArray);
+  const userId = req.query.userId;
+  if (userId) {
+    const artistArray = await musicModel.artists(userId);
+    res.send(artistArray[0]);
+  } else {
+    res.sendStatus(400);
+  }
 }
 
 // Reached via GET /api/music/concerts
