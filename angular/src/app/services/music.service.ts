@@ -16,11 +16,15 @@ export class MusicService {
 
   constructor(private http: HttpClient) { }
 
-  artists(): Observable<Object> {
-    return this.http.get(this.artistsURL);
+  artists(userId): Observable<Object> {
+    return this.http.get(this.artistsURL + '?userId=' + userId);
   }
 
   genres(): Observable<Object> {
     return this.http.get(this.genresURL);
   }
+
+  // genrePreference() {
+  //   this.http.
+  // }
 }

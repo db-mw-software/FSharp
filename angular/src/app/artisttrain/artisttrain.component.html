@@ -1,3 +1,16 @@
-<p>
-  artisttrain works!
-</p>
+<ul class="genres-list">
+  <!-- <li *ngFor="let artist of artists$ | async" class="genre-circle">
+    {{artist.name}}
+    <img src="{{artist.photoURL}}">
+  </li> -->
+  <mat-card *ngFor="let artist of artists$ | async" class="artist-card">
+    <img mat-card-image src="{{artist.photoURL}}" alt="Photo of {{artist.name}}">
+    <mat-card-content>
+      <p>{{artist.name}}</p>
+    </mat-card-content>
+    <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+  </mat-card>
+</ul>

@@ -6,12 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArtisttrainComponent } from './artisttrain/artisttrain.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatSelectModule, MatCardModule } from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { GenretrainComponent } from './genretrain/genretrain.component';
+import { ConcertComponent } from './concert/concert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArtisttrainComponent
+    ArtisttrainComponent,
+    LoginComponent,
+    GenretrainComponent,
+    ConcertComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,9 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, Ma
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

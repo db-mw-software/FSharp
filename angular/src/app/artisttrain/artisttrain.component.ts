@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { of, Observable } from 'rxjs';
 
 import { MusicService } from '../services/music.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-artisttrain',
@@ -11,18 +12,19 @@ import { MusicService } from '../services/music.service';
 })
 export class ArtisttrainComponent implements OnInit {
 
-  offlineTesting: boolean = true;
+  offlineTesting: boolean = false;
   artists$: Observable<Object>;
 
   constructor(private musicService: MusicService) { }
 
   ngOnInit() {
-    if(this.offlineTesting) {
+    const user = JSON.parse(localStorage.getItem(environment.lsLoginKey));
+    if (this.offlineTesting) {
       this.artists$ = this.sampleArtistsResponse();
       console.log(this.artists$);
     }
     else {
-      this.musicService.artists().subscribe( (response) => {
+      this.musicService.artists(user.id).subscribe((response) => {
         this.artists$ = of(response);
         console.log(response);
       });
