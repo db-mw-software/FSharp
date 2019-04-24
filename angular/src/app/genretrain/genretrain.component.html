@@ -1,0 +1,7 @@
+<ul class="genres-list">
+  <li *ngFor="let genre of genres$ | async" class="genre-circle" [style.background]="genre.color" [class.selected]="genre?.selected==true" (click)="toggleSelected(genre)">
+    {{genre.name}}
+  </li>
+</ul>
+
+<button mat-mini-fab color="accent">Accent</button>
