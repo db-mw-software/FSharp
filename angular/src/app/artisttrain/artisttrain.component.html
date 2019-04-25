@@ -2,8 +2,8 @@
   <mat-card *ngFor="let artist of artists$ | async" class="artist-card">
     <img mat-card-image src="{{artist.photoURL}}" alt="Photo of {{artist.name}}">
     <mat-card-content>
-      <p>{{artist.name}}</p>
-      <p>{{artist.genreName}}</p>
+      <p class="mat-h2">{{artist.name}}</p>
+      <p class="mat-caption">{{artist.genreName}}</p>
     </mat-card-content>
   </mat-card>
 </ul>
