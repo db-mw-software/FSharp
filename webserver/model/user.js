@@ -60,11 +60,11 @@ exports.recommendations = (userId) => {
     join Genre
     on Genre.genreID=a2.genre) as a3
     join ArtistAtConcert
-    on a3.artistID=ArtistAtConcert.artistID
+    on a3.artistID=ArtistAtConcert.artistID and ArtistAtConcert.performerOrder=1
     ) as a4
     join Concert join Venue
     on a4.concertID=Concert.concertID and Venue.venueID=Concert.venueID and Concert.eventDateTime >= NOW()
-    order by Concert.eventDateTime
+    order by Concert.eventDateTime  
   `;
   return db.query(query);
 }
