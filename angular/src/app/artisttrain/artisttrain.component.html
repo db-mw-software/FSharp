@@ -1,5 +1,6 @@
-<ul>
-  <mat-card *ngFor="let artist of artists$ | async" class="artist-card">
+<h1>Artists</h1>
+<ul class="artist-grid">
+  <mat-card *ngFor="let artist of artists$ | async" class="artist-card" [class.selected]="artist?.selected==true" (click)="toggleSelected(artist)" color="accent">
     <img mat-card-image src="{{artist.photoURL}}" alt="Photo of {{artist.name}}">
     <mat-card-content>
       <p class="mat-h2">{{artist.name}}</p>

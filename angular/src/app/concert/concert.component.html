@@ -1,4 +1,5 @@
-<ul class="genres-list">
+<h1>Recommendations</h1>
+<ul class="concert-list">
   <mat-card *ngFor="let concert of concerts$ | async" class="concert-card" routerLink="/concertdetail/{{concert.concertID}}">
     <img mat-card-image src="{{concert.artistPhotoURL}}" alt="Photo of {{concert.artistPhotoURL}}">
     <mat-card-content class="mat-body-2">

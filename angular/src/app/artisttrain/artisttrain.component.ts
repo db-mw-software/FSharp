@@ -31,6 +31,11 @@ export class ArtisttrainComponent implements OnInit {
     }
   }
 
+  toggleSelected(artist) {
+      artist["selected"] = !artist["selected"];
+    console.log(artist);
+  }
+
   sampleArtistsResponse(): Observable<Object> {
     const response = `[
     {

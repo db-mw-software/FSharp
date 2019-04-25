@@ -1,5 +1,8 @@
-.artist-card {
-  margin-bottom: 10px;
+.artist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
 }
 
 #next {
@@ -11,4 +14,25 @@
   position: fixed;
   left: 30px;
   bottom: 30px;
+}
+
+.artist-card {
+  filter: grayscale(80%);
+}
+
+.selected {
+  filter: grayscale(0%) saturate(150%);
+  border: 5px solid #FFC107;
+}
+
+@media screen and (min-width: 700px) {
+  .artist-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .artist-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
