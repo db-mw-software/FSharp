@@ -26,4 +26,10 @@ export class ConcertdetailComponent implements OnInit {
     });
   }
 
+  getDate(eventDateTime){
+    // console.log(eventDateTime);
+    return eventDateTime.substr(0,10);
+  }
+
+
 }
