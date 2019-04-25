@@ -23,4 +23,6 @@ router.post('/concert-interest', userController.concertInterest);
 router.post('/search', userController.search);
 router.post('/follow',userController.follow);
 
+router.get('/users', userController.users);
+
 module.exports = router;

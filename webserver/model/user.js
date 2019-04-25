@@ -2,6 +2,12 @@ const db = require('./dbConnection');
 
 // To use await, need to make function async first. See Music controller functions. 
 // Notice keyword "async" before parameters. Same to be done here
+exports.users = () => {
+  const query = 'select listenerID, username, photoURL from Listener';
+  console.log(query);
+  return db.query(query);
+}
+
 exports.register = (registration) => {
   return "Register Model";
 }

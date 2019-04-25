@@ -13,6 +13,7 @@ export class UserService {
   baseURL: string = `${environment.baseURL}/api/user`;
   saveGenreURL: string = `${this.baseURL}/genres`;
   recommendationsURL: string = `${this.baseURL}/recommendations`;
+  usersURL: string = `${this.baseURL}/users`;
   httpOptions: Object = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -20,6 +21,10 @@ export class UserService {
   };
 
   constructor(private http: HttpClient) { }
+
+  users(): Observable<Object> {
+    return this.http.get(this.usersURL);
+  }
 
   saveGenre(userId, genreID, like): Observable<Object> {
     const reqBody = {
