@@ -1,23 +1,22 @@
+<h1>Concert Details</h1>
 <div class="concert-details">
   <div>
-    <h2 class="concert-title">
-      <a target="_blank" href="{{concertDetails$.value[0].websiteURL}}"> {{ ''+ concertDetails$.value[0].concertName}} </a>
-    </h2>
+    <h2 class="concert-title">{{concertDetails$.value[0].concertName}}</h2>
     <ul>
       <div>
-        <h3>
-          <span>Venue: {{concertDetails$.value[0].name}}</span>
+        <h3 class="concert-venue">Venue:
+            <a target="_blank" href="{{concertDetails$.value[0].websiteURL}}"> {{concertDetails$.value[0].name}} </a>
         </h3>
-        <p><span> ( {{concertDetails$.value[0].phone}} )</span></p>
-        <p><span>{{concertDetails$.value[0].address}} <br/> {{concertDetails$.value[0].city+ ' ' +concertDetails$.value[0].state+' '+concertDetails$.value[0].zip }}</span></p>
+        <!-- <section *ngIf="concertDetails$.value[0].phone==''"> ( {{concertDetails$.value[0].phone}} )</section> -->
+        <section><span>{{concertDetails$.value[0].address}} <br/> {{concertDetails$.value[0].city+ ' ' +concertDetails$.value[0].state+' '+concertDetails$.value[0].zip }}</span></section>
       </div>
     </ul>
   </div>
   <div>
-    <p><span>Date: {{getDate(concertDetails$.value[0].eventDateTime)}}</span></p>
-    <p><span>Age Restriction: {{(concertDetails$.value[0].ageRestriction == 'null')? ' - ':concertDetails$.value[0].ageRestriction}}</span></p>
-    <p><span>Capacity: {{ (concertDetails$.value[0].capacity == 'null')? ' - ':' $ '+concertDetails$.value[0].capacity}}</span></p>
-    <p><span>Cost: {{ (concertDetails$.value[0].cost == 'null')? ' - ':concertDetails$.value[0].cost}}</span></p>
+    <section>Date: {{getDate(concertDetails$.value[0].eventDateTime)}}</section>
+    <section>Age Restriction: {{(concertDetails$.value[0].ageRestriction == 'null')? ' - ':concertDetails$.value[0].ageRestriction}}</section>
+    <section>Capacity: {{ (concertDetails$.value[0].capacity == 'null')? ' - ':' $ '+concertDetails$.value[0].capacity}}</section>
+    <section>Cost: {{ (concertDetails$.value[0].cost == 'null')? ' - ':concertDetails$.value[0].cost}}</section>
   </div>
   <div class="container">
     <div class="row justify-content-around">
@@ -25,8 +24,8 @@
     </div>
   </div>
   <div>
-    <h3><span>Artists: </span></h3>
-    <span *ngFor="let artist of concertDetails$ | async">| {{artist.artistName}} |</span>
+    <h3>Artists: </h3>
+    <!-- <span *ngFor="let artist of concertDetails$ | async">| {{artist.artistName}} |</span> -->
   </div>
   <!-- <span>concertID: {{concertDetails$.value[0].concertID}}</span> -->
   <!-- <span>concertPhotoURL: {{concertDetails$.value[0].concertPhotoURL}}</span> -->
@@ -35,12 +34,19 @@
     <mat-card *ngFor="let artist of concertDetails$ | async" class="artist-card">
         <img mat-card-image src="{{artist.artistPhotoURL}}" alt="Photo of {{artist.artistName}}">
         <mat-card-content>
-          <p><span>artistName: {{artist.artistName}}</span></p>
-          <p><span>{{(artist.performerOrder == 1)? '( Headliner )': ' '}}</span></p>
-          <p><span>genreName: {{artist.genreName}}</span></p>
+          <section>
+            <span class="mat-h2">{{artist.artistName}}</span>
+            <span class="headliner" *ngIf="artist.performerOrder == 1">
+              <button mat-flat-button color="warn"> Headliner</button>
+            </span>
+          </section>
+          <section><span class="mat-caption">{{artist.genreName}}</span></section>
         </mat-card-content>
       </mat-card>
   </div>
   
-  
   </div>
+
+<button mat-raised-button color="accent" class="mdc-fab mdc-fab--extended" id="back" routerLink="/recommendations">
+  <span class="material-icons mdc-fab__icon">navigate_before</span>
+</button>
