@@ -1,5 +1,10 @@
 const userModel = require('../model/user');
 
+exports.users = async(req, res) => {
+  const users = await userModel.users();
+  res.send(users);
+}
+
 // Reached via POST /api/user/register
 exports.register = async (req, res) => {
   const registerModel = await userModel.register('');

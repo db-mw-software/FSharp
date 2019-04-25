@@ -2,11 +2,11 @@
   <mat-form-field>
     <mat-label>Login With User</mat-label>
     <mat-select [(value)]="selected">
-      <mat-option *ngFor="let user of users" [value]="user">
-        {{user.name}}
+      <mat-option *ngFor="let user of users | async" [value]="user">
+        {{user.username}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 </section>
 
-<button mat-raised-button color="accent" (click)="setLoggedInUser(selected)" routerLink="/genretrain">Login with {{selected.name}}</button>
+<button mat-raised-button color="accent" (click)="setLoggedInUser(selected)" routerLink="/genretrain">Login with {{selected.username}}</button>
