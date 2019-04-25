@@ -7,3 +7,8 @@
   right: 30px;
   bottom: 30px;
 }
+#back {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+}
