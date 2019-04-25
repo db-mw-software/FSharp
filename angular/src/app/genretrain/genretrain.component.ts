@@ -21,7 +21,7 @@ export class GenretrainComponent implements OnInit {
     "#f2994a, #f2c94c",
     "#eb5757, #000000",
     "#e44d26, #f16529",
-    "#b2fefa, #0ed2f7",
+    "#92ceca, #0ea2c7",
     "#d66d75, #e29587",
     "#20002c, #cbb4d4",
     "#34e89e, #0f3443",
