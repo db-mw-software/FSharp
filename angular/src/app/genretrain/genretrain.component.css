@@ -18,3 +18,9 @@
 .selected {
   filter: contrast(200%);
 }
+
+#next {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
