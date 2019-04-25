@@ -29,6 +29,8 @@ exports.artists = async (req, res) => {
 }
 
 // Reached via GET /api/music/concerts
-exports.concerts = (req, res) => {
-  res.send('Hello from music concerts!');
+exports.concerts = async (req, res) => {
+  const concertId = req.query.concertId;
+  const concerts = await musicModel.concerts(concertId);
+  res.send(concerts[0]);
 }

@@ -10,6 +10,7 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, Ma
 import { LoginComponent } from './login/login.component';
 import { GenretrainComponent } from './genretrain/genretrain.component';
 import { ConcertComponent } from './concert/concert.component';
+import { ConcertdetailComponent } from './concertdetail/concertdetail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ConcertComponent } from './concert/concert.component';
     ArtisttrainComponent,
     LoginComponent,
     GenretrainComponent,
-    ConcertComponent
+    ConcertComponent,
+    ConcertdetailComponent
   ],
   imports: [
     BrowserModule,

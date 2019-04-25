@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { of, Observable } from 'rxjs';
 
+import { environment } from '../../environments/environment';
 import { MusicService } from '../services/music.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-genretrain',
@@ -15,7 +17,17 @@ export class GenretrainComponent implements OnInit {
   genres$: Observable<Object>;
   hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e"];
 
-  constructor(private musicService: MusicService) { }
+  colors: Array<string> = ["#159957, #155799",
+    "#f2994a, #f2c94c",
+    "#eb5757, #000000",
+    "#e44d26, #f16529",
+    "#b2fefa, #0ed2f7",
+    "#d66d75, #e29587",
+    "#20002c, #cbb4d4",
+    "#34e89e, #0f3443",
+    "#de6161, #2657eb"];
+
+  constructor(private musicService: MusicService, private userService: UserService) { }
 
   ngOnInit() {
     if (this.offlineTesting) {
@@ -23,9 +35,9 @@ export class GenretrainComponent implements OnInit {
       console.log(this.genres$);
     } else {
       this.musicService.genres().subscribe((response: Object[]) => {
-        for (let genre of response) {
-          genre["color"] = this.getRandomGradient();
-        }
+        // for (let genre of response) {
+        //   genre["color"] = this.getRandomGradient();
+        // }
         this.genres$ = of(response);
         console.log(response);
       });
@@ -35,6 +47,14 @@ export class GenretrainComponent implements OnInit {
   toggleSelected(genre) {
     genre["selected"] = !genre["selected"];
     console.log(genre);
+    this.postGenrePreference(genre.genreID, genre.selected);
+  }
+
+  postGenrePreference(genreId, like) {
+    const user = JSON.parse(localStorage.getItem(environment.lsLoginKey));
+    this.userService.saveGenre(user.id, genreId, like).subscribe(res => {
+      console.log(res);
+    });
   }
 
   getRandomGradient() {

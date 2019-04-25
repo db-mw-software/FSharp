@@ -7,11 +7,15 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  aVariable: string = "This is a random string";
+
   lsLoginKey: string = 'loggedInUser';
   users: Object[] = [
     { name: 'Beth', id: 1 },
     { name: 'Marianela', id: 2 },
-    { name: 'Daniel', id: 3 }
+    { name: 'Daniel', id: 3 },
+    { name: 'Marcelo', id: 4 }
   ];
 
   selected: Object = { name: 'Beth', id: 1 };

@@ -23,6 +23,7 @@ exports.artists = (userId) => {
   return db.query(query);
 }
 
-exports.concerts = () => {
-  return "Concert Model";
+exports.concerts = (concertId) => {
+  const query = `call concertDetailsByid2(${concertId})`;
+  return db.query(query);
 }

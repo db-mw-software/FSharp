@@ -13,6 +13,7 @@ export class MusicService {
   baseURL: string = `${environment.baseURL}/api/music`;
   artistsURL: string = `${this.baseURL}/artists`;
   genresURL: string = `${this.baseURL}/genres`;
+  concertDetailsURL: string = `${this.baseURL}/concerts`;
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +25,7 @@ export class MusicService {
     return this.http.get(this.genresURL);
   }
 
-  // genrePreference() {
-  //   this.http.
-  // }
+  concert(concertId: number): Observable<Object> {
+    return this.http.get(this.concertDetailsURL + '?concertId=' + concertId);
+  }
 }

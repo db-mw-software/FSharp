@@ -19,15 +19,15 @@ exports.logout = async (req, res) => {
 }
 
 // Reached via GET /api/user/genres
-exports.genres =  async (req, res) => {
+exports.genres = async (req, res) => {
   const genreModel = await userModel.genres();
   res.send('Hello from user genres! And from ' + genreModel);
 }
 
 // Reached via POST /api/user/genres
 exports.saveGenres = async (req, res) => {
-  const saveGenresModel = await userModel.saveGenres();
-  res.send('Hello from user save genres! And from ' + saveGenresModel);
+  const saveGenresModel = await userModel.saveGenres(req.body.userId, req.body.genreId, req.body.like);
+  saveGenresModel["affectedRows"] ? res.sendStatus(202) : res.sendStatus(404);
 }
 
 // Reached via GET /api/user/artists
@@ -56,8 +56,9 @@ exports.saveInformation = async (req, res) => {
 
 // Reached via GET /api/user/recommendations
 exports.recommendations = async (req, res) => {
-  const recommendationsModel = await userModel.recommendations();
-  res.send('Hello from user recommendations! And from ' + recommendationsModel);
+  const userId = req.query.userId;
+  const recommendationsModel = await userModel.recommendations(userId);
+  res.send(recommendationsModel);
 }
 
 // Reached via POST /api/user/concertInterest

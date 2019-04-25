@@ -1,9 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const musicRoutes = require('./routes/music');
 const userRoutes = require('./routes/user');
 const app = express();
 
 app.set('port', (process.env.PORT || 8080));
+
+app.use(bodyParser.json()); 
 
 app.use((req, res, next) => {
   res.set('Access-Control-Allow-Origin', "*");
