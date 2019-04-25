@@ -13,11 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: grayscale(80%);
 }
 
 .selected {
-  filter: contrast(200%);
+  filter: grayscale(0%) saturate(150%);
 }
+
 
 #next {
   position: fixed;
