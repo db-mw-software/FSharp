@@ -769,7 +769,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    baseURL: 'http://127.0.0.1:8080',
+    baseURL: '',
     lsLoginKey: 'loggedInUser'
 };
 /*
