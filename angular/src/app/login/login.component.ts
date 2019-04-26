@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    const loggedInUser = JSON.parse(localStorage.getItem(environment.lsLoginKey));
+    if(loggedInUser) {
+      this.selected = loggedInUser;
+    }
     this.userService.users().subscribe((res:Object[]) => {
       console.log(res);
       for(let user of res) {
