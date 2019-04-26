@@ -4,6 +4,9 @@ const musicRoutes = require('./routes/music');
 const userRoutes = require('./routes/user');
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
+app.set('public', __dirname + '/public');
+
 app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json()); 
@@ -18,9 +21,9 @@ app.use((req, res, next) => {
 app.use('/api/user', userRoutes);
 app.use('/api/music', musicRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello from /');
-});
+app.get('/*', (request, response) => {
+  response.sendFile(__dirname+'/public/index.html');
+})
 
 app.listen(app.get('port'), '0.0.0.0', () => {
   console.log('Node app is running on port', app.get('port'));
